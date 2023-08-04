@@ -1,0 +1,20 @@
+name: Setup ENV
+description: Setup environment
+inputs:
+  project-name:
+    description: Project Name, defaults to GitHub repo name.
+    required: false
+  environment:
+    description: Environment, either test or production
+    required: false
+
+outputs:
+  project-name:
+    description: Project name
+  environment:
+    description: Environment
+  ecs-task-role-arn:
+    description: AWS IAM Role ARN used to build/deploy the project.
+runs:
+  using: 'node16'
+  main: '../../dist/setup-env.js'
